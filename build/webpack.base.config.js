@@ -17,8 +17,7 @@ const config = {
         loader: 'vue-loader',
         options: {
           css: 'css-loader',
-          'scss': 'css-loader|sass-loader',
-          extractCSS: true
+          'scss': 'css-loader|sass-loader'
         }
       },
       {

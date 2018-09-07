@@ -34,7 +34,7 @@ app.get("*", (req, res) => {
     }
     html = indexHTML.replace('{{ APP }}', html)
     html = html.replace('{{ STATE }}',
-    `<script>window.__INITIAL_STATE__=${serialize(context.initialState, { isJSON: true })}</script>`)
+      `<script>window.__INITIAL_STATE__=${serialize(context.initialState, { isJSON: true })}</script>`)
     res.write(html);
     res.end();
   })

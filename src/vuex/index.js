@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import appService from '../app.service.js'
-import postModule from './posts'
+import postsModule from './posts'
 
 Vue.use(Vuex)
 
@@ -11,7 +11,7 @@ const state = {
 
 const store = new Vuex.Store({
   modules: {
-    postModule
+    postsModule
   },
   state,
   getters: {
@@ -28,9 +28,12 @@ const store = new Vuex.Store({
         appService.login(credentials)
           .then((data) => {
             context.commit('login', data)
+
             resolve()
           })
-          .catch(() => window.alert('Could not login!'))
+          .catch(() => {
+            if (typeof window !== 'undefined') { window.alert('Could not login!') }
+          })
       })
     }
   },
@@ -55,8 +58,8 @@ const store = new Vuex.Store({
 if (typeof window !== 'undefined') {
   document.addEventListener('DOMContentLoaded', function (event) {
     let expiration = window.localStorage.getItem('tokenExpiration')
-    var unixTimeStamp = new Date().getTime() / 1000
-    if (expiration !== null && parseInt(expiration) - unixTimeStamp > 0) {
+    var unixTimestamp = new Date().getTime() / 1000
+    if (expiration !== null && parseInt(expiration) - unixTimestamp > 0) {
       store.state.isAuthenticated = true
     }
   })

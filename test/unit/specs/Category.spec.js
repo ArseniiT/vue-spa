@@ -20,7 +20,14 @@ describe('Category.vue', () => {
       render: h => h('router-view')
     })
 
-    console.log(vm.$el)
-    done()
+    store.watch(
+      state => {
+        return state.postModule.posts
+      },
+      function () {
+        expect(vm.$el.querySelectorAll('.column').length).to.equal(6)
+        done()
+      }
+    )
   })
 })

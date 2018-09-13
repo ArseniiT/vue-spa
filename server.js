@@ -17,11 +17,12 @@ if (isProd) {
   app.use("/dist", express.static(path.resolve(__dirname, "./dist")));
 }
 
+// for production mode
 if (isProd) {
   const bundlePath = path.resolve(__dirname, './dist/server/main.js')
   renderer = createBundleRenderer(fs.readFileSync(bundlePath, 'utf-8'))
-} else {
-  require("./build/dev-server")(app, bundle => {
+} else { // for development mode
+  require('./build/dev-server')(app, bundle => {
     renderer = createBundleRenderer(bundle)
   });
 }

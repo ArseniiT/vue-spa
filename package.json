@@ -2,6 +2,9 @@
   "name": "vue-spa",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "8.11.1"
+  },
   "dependencies": {
     "axios": "^0.16.2",
     "bulma": "^0.5.1",

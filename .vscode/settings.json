@@ -1,3 +1,5 @@
 {
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "appService.defaultWebAppToDeploy": "/subscriptions/6eea5b0f-f694-4d54-8528-f08bbe3d4a66/resourceGroups/appsvc_rg_linux_centralus/providers/Microsoft.Web/sites/vuejs-spa2",
+  "appService.deploySubpath": ""
 }
